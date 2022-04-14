@@ -1,5 +1,17 @@
 import React, {FC} from 'react';
-import { Modal, Box, Typography } from '@mui/material';
+import {
+    Modal,
+    Box,
+    Stack,
+} from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LinkIcon from '@mui/icons-material/Link';
+import CopyAllIcon from '@mui/icons-material/CopyAll';
+import RoundedInput from "../../../../components/input/rounded";
+import { P1 } from '../../../../components/paragraph';
+import { CTitle } from '../../../../components/heading/h3';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -14,6 +26,7 @@ const style = {
     pt: 2,
     px: 4,
     pb: 3,
+    textAlign: 'center'
 };
 
 interface StepProps {
@@ -26,26 +39,59 @@ const Step1: FC<StepProps> = (props) => {
     return (
         <Modal
             open={visible}
-            onClose={() => { setVisible(false) }}
+            onClose={() => {
+                setVisible(false)
+            }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography
-                    variant="h4"
-                    component="h4"
-                    align="center"
-                >
-                    ADD A FRIEND
-                </Typography>
-                <Typography
-                    variant="body2"
-                    component="p"
-                    align="center"
-                >
-                    How do you wanna invite?
-                </Typography>
+                <Stack spacing={2}>
+                    <div>
+                        <CTitle>
+                            ADD A FRIEND
+                        </CTitle>
+                        <P1>
+                            How do you wanna invite?
+                        </P1>
+                    </div>
+                    <div>
+                        <RoundedInput
+                            label="FRIEND'S EMAIL"
+                            prefix={{
+                                icon: <MailOutlineIcon/>
+                            }}
+                            suffix={{
+                                icon: <SendIcon/>
+                            }}
+                        />
+                        <RoundedInput
+                            label="USERNAME"
+                            prefix={{
+                                icon: <AlternateEmailIcon/>
+                            }}
+                            suffix={{
+                                icon: <SendIcon/>
+                            }}
+                        />
+                        <RoundedInput
+                            disabled
+                            label="codetribe.com/profile/xyz"
+                            prefix={{
+                                icon: <LinkIcon/>
+                            }}
+                            suffix={{
+                                icon: <CopyAllIcon htmlColor=""/>
+                            }}
+                        />
+                    </div>
+                    <P1>
+                        TIP: Copy the link above and send it to your friends.
+                    </P1>
+                </Stack>
+
             </Box>
+
         </Modal>
     );
 };

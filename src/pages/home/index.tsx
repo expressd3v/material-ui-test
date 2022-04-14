@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import Step1 from "./components/step1";
-import {Container, Button, Box, Grid} from "@mui/material";
+import {Container, Button, Grid} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 
 const HomePage: FC = () => {
