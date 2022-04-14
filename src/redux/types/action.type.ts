@@ -1,5 +1,5 @@
 type TAction = {
-    data: any;
+    payload: any | any[];
     type: string;
 }
 

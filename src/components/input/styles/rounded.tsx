@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-    disabled?: string
+    disabled?: boolean
 }
 
 const RoundedInputBox = styled.div<Props>`
@@ -12,7 +12,7 @@ const RoundedInputBox = styled.div<Props>`
   border: 2px solid rgba(196, 196, 196, 0.5);
   margin-bottom: 10px;
   padding: 7px;
-  background-color: ${props => props.disabled === 'true' ? 'rgba(196, 196, 196, 0.5)' : '#ffffff'};
+  background-color: ${props => props.disabled ? 'rgba(196, 196, 196, 0.5)' : '#ffffff'};
   button {
     width: 66px;
     height: 66px;

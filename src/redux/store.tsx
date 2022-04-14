@@ -1,4 +1,6 @@
-import {compose, createStore} from "redux";
+import thunk from "redux-thunk";
+import {applyMiddleware, compose, createStore} from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension'
 import RootReducer from "./reducers/root.reducer";
 
 declare global {
@@ -7,8 +9,10 @@ declare global {
     }
 }
 
-const store = createStore(
-    RootReducer
+
+export const store = createStore(
+    RootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
 )
 
-export {store}
+

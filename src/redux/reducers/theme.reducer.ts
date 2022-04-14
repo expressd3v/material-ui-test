@@ -1,11 +1,8 @@
 import TAction from "../types/action.type"
 import { CHANGE_THEME } from "../types/dispatch"
 
-
-
 const initialState = {
     current: 'light',
-
 }
 
 const ThemeReducer = (state = initialState, action: TAction) => {
@@ -13,7 +10,7 @@ const ThemeReducer = (state = initialState, action: TAction) => {
         case CHANGE_THEME:
             return {
                 ...state,
-                current: action.data.current,
+                current: action.payload.current,
             }
         default:
             return { ...state }

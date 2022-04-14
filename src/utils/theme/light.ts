@@ -13,6 +13,10 @@ const lightThemeOptions: ThemeOptions = {
             main: '#A6A6A6',
             dark: '#111111',
             contrastText: '#111111',
+        },
+        success: {
+            main: "rgba(67, 212, 221, 1)",
+            light: '#eeeeee',
         }
     },
 };
