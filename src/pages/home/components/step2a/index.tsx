@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react';
-import {Stack} from "@mui/material";
+import {Grid, Stack} from "@mui/material";
 import {CTitle} from "../../../../components/heading/h3";
 import RoundedInput from "../../../../components/input/rounded";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {changeStepAction, updateInviteAction} from "../../../../redux/actions/step.action";
 import RoundedInputArea from "../../../../components/input/area";
 import RoundedButton from "../../../../components/button/rounded";
-import SendIcon from "@mui/icons-material/Send";
 import {useDispatch, useSelector} from "react-redux";
 
 const Step2A = () => {
@@ -44,15 +45,28 @@ const Step2A = () => {
                         }}
                     />
                 </div>
+                <Grid container spacing={2}>
+                    <Grid item xs={3}>
+                        <RoundedButton
+                            color="secondary"
+                            variant="contained"
+                            onClick={()=>{dispatch(changeStepAction('step2'))}}
+                        >
+                            <ArrowBackIosNewIcon/>
+                        </RoundedButton>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <RoundedButton
+                            color="success"
+                            variant="contained"
+                            endIcon={<ArrowForwardIosIcon/>}
+                            onClick={sendHandler}
+                        >
+                            EMAIL INVITE
+                        </RoundedButton>
+                    </Grid>
 
-                <RoundedButton
-                    color="success"
-                    variant="contained"
-                    endIcon={<SendIcon className="flex-icon"/>}
-                    onClick={sendHandler}
-                >
-                    Send
-                </RoundedButton>
+                </Grid>
             </Stack>
         </Fragment>
     );

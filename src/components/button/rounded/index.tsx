@@ -7,7 +7,12 @@ const RoundedButton = styled(Button)`
   font-weight: 700;
   color: #ffffff;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  
+  display: flex;  
+  width: 100%;
+  .MuiTouchRipple-root{
+    width: 100%;
+    display: flex;
+  }
   .flex-icon{
     width: 40px;
     height: 40px;
