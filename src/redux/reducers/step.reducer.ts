@@ -9,6 +9,7 @@ const initialState = {
         note: "",
         mode: "email",
         visible: false,
+        link: "https://codetribe.com/profile/tokenxyz"
     }
 }
 

@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {Grid, Stack} from "@mui/material";
+import React, {Fragment, useState} from 'react';
+import {Alert, AlertTitle, Grid, Stack} from "@mui/material";
 import {CTitle} from "../../../../components/heading/h3";
 import RoundedInput from "../../../../components/input/rounded";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -12,19 +12,33 @@ import {useDispatch, useSelector} from "react-redux";
 
 const Step2A = () => {
     const dispatch = useDispatch();
-    const step = useSelector((state: any) => state.step)
+    const step = useSelector((state: any) => state.step);
+    const [err, setErr] = useState<string>("");
     const sendHandler = () => {
         //todo: action
-        dispatch(changeStepAction('step3'))
+        if(!!step.data.email) {
+            dispatch(changeStepAction('step3'))
+        } else {
+            setErr("Please select an email address")
+        }
     }
     return (
         <Fragment>
             <Stack spacing={3}>
+                {
+                    !!err && (
+                        <Alert severity="warning">
+                            {err}
+                        </Alert>
+                    )
+                }
+
                 <div>
                     <CTitle>
                         ADD A FRIEND
                     </CTitle>
                 </div>
+
                 <div>
                     <RoundedInput
                         value={step.data.email}
@@ -33,9 +47,11 @@ const Step2A = () => {
                             icon: <MailOutlineIcon/>
                         }}
                         onChange={(e) => {
+                            !!e.target.value && setErr("")
                             dispatch(updateInviteAction( {email: e.target.value}))
                         }}
                     />
+
                     <RoundedInputArea
                         label="Wanna add a note?"
                         placeholder="Your Note"

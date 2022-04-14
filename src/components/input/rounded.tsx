@@ -41,6 +41,7 @@ const RoundedInput: FC<InputProps> = (props) => {
                 {prefix?.icon}
             </IconButton>
             <InputBase
+                disabled={disabled}
                 sx={{ml: 1, flex: 1}}
                 placeholder={label}
                 inputProps={{'aria-label': 'search google maps'}}

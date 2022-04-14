@@ -66,7 +66,8 @@ const Step1: FC = () => {
                     />
                     <RoundedInput
                         disabled
-                        label="codetribe.com/profile/xyz"
+                        label={step.data.link}
+                        value={step.data.link}
                         prefix={{
                             icon: <LinkIcon/>
                         }}
